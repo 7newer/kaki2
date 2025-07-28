@@ -1,16 +1,16 @@
-class RecipesDto {
-  RecipesDto({this.recipes});
+class RecipesResultDto {
+  RecipesResultDto({
+      this.recipes,});
 
-  RecipesDto.fromJson(dynamic json) {
+  RecipesResultDto.fromJson(dynamic json) {
     if (json['recipes'] != null) {
       recipes = [];
       json['recipes'].forEach((v) {
-        recipes?.add(Recipes.fromJson(v));
+        recipes?.add(RecipeDto.fromJson(v));
       });
     }
   }
-
-  List<Recipes>? recipes;
+  List<RecipeDto>? recipes;
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
@@ -19,20 +19,20 @@ class RecipesDto {
     }
     return map;
   }
+
 }
 
-class Recipes {
-  Recipes({
-    this.category,
-    this.id,
-    this.name,
-    this.image,
-    this.chef,
-    this.time,
-    this.rating,
-  });
+class RecipeDto {
+  RecipeDto({
+      this.category, 
+      this.id, 
+      this.name, 
+      this.image, 
+      this.chef, 
+      this.time, 
+      this.rating,});
 
-  Recipes.fromJson(dynamic json) {
+  RecipeDto.fromJson(dynamic json) {
     category = json['category'];
     id = json['id'];
     name = json['name'];
@@ -41,7 +41,6 @@ class Recipes {
     time = json['time'];
     rating = json['rating'];
   }
-
   String? category;
   num? id;
   String? name;
@@ -61,4 +60,5 @@ class Recipes {
     map['rating'] = rating;
     return map;
   }
+
 }

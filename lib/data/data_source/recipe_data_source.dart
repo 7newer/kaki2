@@ -1,8 +1,6 @@
-import 'package:flutter_app/data/core/result.dart';
-import 'package:flutter_app/data/dto/recipes_dto.dart';
-
-import '../core/network_error.dart';
+import '../core/response.dart';
+import '../dto/recipes_dto.dart';
 
 abstract interface class RecipeDataSource {
-  Future<Result<List<RecipesDto>, NetworkError>> getRecipes();
+  Future<Response<RecipesResultDto>> getRecipes();
 }
